@@ -33,6 +33,6 @@ def predict(acousticness:float, danceability:float, duration_ms:int, energy:floa
         res =  mdl.predict(data_df)
         return {'artist' : artist,
                 'name': name,
-                'popularity':res[0]}
+                'popularity':round(res[0])}
     except:
         return {"error": str(sys.exc_info()[1])}
