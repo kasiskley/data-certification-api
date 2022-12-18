@@ -91,3 +91,11 @@ class Trainer():
 if __name__ == '__main__':
     trainer = Trainer()
     trainer.train()
+    data = {'acousticness':[0.654], 'danceability':[0.499], 'duration_ms':[219827], 'energy':[0.19], \
+                'explicit':[0], 'id':['0B6BeEUd6UwFlbsHMQKjob'], 'instrumentalness':[0.00409], 'key':[7], 'liveness':[0.0898], \
+                'loudness':[-16.435], 'mode':[1], 'name':['Back%20in%20the%20Goodle%20Days'], 'release_date':[1971], 'speechiness':[0.0454], \
+                'tempo':[149.46], 'valence':[0.43], 'artist':['John%20Hartford']}
+    data_df = pd.DataFrame.from_dict(data)
+    print(data_df.head(1))
+    mdl = joblib.load('model.joblib')
+    print(mdl.predict(data_df))
